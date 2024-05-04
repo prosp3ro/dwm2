@@ -33,9 +33,27 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 6,       0,           -1 },
+    /* class                     instance            title           tags mask        isfloating          monitor */
+    { "Gimp",                    NULL,               NULL,           0,               1,                  -1 },
+    { "Tor Browser",             NULL,               NULL,           0,               1,                  -1 },
+    { "brave",                   NULL,               NULL,           0,               1,                  -1 },
+    { "Nsxiv",                   NULL,               NULL,           0,               1,                  -1 },
+    { "Blueman-manager",         NULL,               NULL,           0,               1,                  -1 },
+    { "Wpa_gui",                 NULL,               NULL,           0,               1,                  -1 },
+    { "mpv",                     NULL,               NULL,           0,               1,                  -1 },
+    { "stacer",                  NULL,               NULL,           0,               1,                  -1 },
+    { "pop-up",                  NULL,               NULL,           0,               1,                  -1 },
+    { "Gpick",                   NULL,               NULL,           0,               1,                  -1 },
+    { "pavucontrol",             NULL,               NULL,           0,               1,                  -1 },
+    { "YouTube Music",           NULL,               NULL,           1 << 6,          0,                  -1 },
+    { "firefox",                 NULL,               NULL,           1 << 6,          0,                  -1 },
+    { "obsidian",                NULL,               NULL,           1 << 8,          0,                  -1 },
+    { "LibreWolf",               NULL,               NULL,           1 << 7,          0,                  -1 },
+    { "Signal",                  NULL,               NULL,           1 << 7,          0,                  -1 },
+    { "Chromium",                NULL,               NULL,           1 << 2,          0,                  -1 },
+    { "Ferdium",                 NULL,               NULL,           1 << 3,          0,                  -1 },
+    { "st-256color",             NULL,               NULL,           1 << 1,          0,                  -1 },
+    { "chatterino",              "chatterino",       NULL,           0,               1,                  -1 },
 };
 
 /* layout(s) */
