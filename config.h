@@ -30,7 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 6,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 6,       0,           -1 },
 };
 
 /* layout(s) */
@@ -123,16 +123,16 @@ static const Key keys[] = {
     { MODKEY,                            XK_r,                        spawn,                     SHCMD("remaps us; kill -10 $(pidof dwmblocks)") },
     { MODKEY|ShiftMask,                  XK_r,                        spawn,                     SHCMD("remaps pl; kill -10 $(pidof dwmblocks)") },
     { MODKEY,                            XK_0,                        spawn,                     SHCMD("dm-display") },
-    // { MODKEY,                            XK_period,                   viewnext,                  {0} },
-    // { MODKEY,                            XK_comma,                    viewprev,                  {0} },
-    // { MODKEY,                            XK_Tab,                      viewnext,                  {0} },
-    // { MODKEY,                            XK_Escape,                   viewprev,                  {0} },
     { MODKEY,                            XK_x,                        spawn,                     SHCMD("clear-clipboard") },
     { MODKEY,                            XK_c,                        spawn,                     SHCMD("chromium") },
-    // { MODKEY|ShiftMask,                  XK_period,                   tagtonext,                 {0} },
-    // { MODKEY|ShiftMask,                  XK_comma,                    tagtoprev,                 {0} },
-    // { MODKEY|ShiftMask,                  XK_Tab,                      tagtonext,                 {0} },
-    // { MODKEY|ShiftMask,                  XK_Escape,                   tagtoprev,                 {0} },
+    { MODKEY,                            XK_period,                   viewnext,                  {0} },
+    { MODKEY,                            XK_comma,                    viewprev,                  {0} },
+    { MODKEY,                            XK_Tab,                      viewnext,                  {0} },
+    { MODKEY,                            XK_Escape,                   viewprev,                  {0} },
+    { MODKEY|ShiftMask,                  XK_period,                   tagtonext,                 {0} },
+    { MODKEY|ShiftMask,                  XK_comma,                    tagtoprev,                 {0} },
+    { MODKEY|ShiftMask,                  XK_Tab,                      tagtonext,                 {0} },
+    { MODKEY|ShiftMask,                  XK_Escape,                   tagtoprev,                 {0} },
     // { MODKEY,                            XK_i,                        incnmaster,                {.i = +1 } },
     // { MODKEY,                            XK_d,                        incnmaster,                {.i = -1 } },
     // { MODKEY|ShiftMask,                  XK_Return,                   zoom,                      {0} },
