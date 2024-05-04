@@ -21,6 +21,7 @@ static char *colors[][3] = {
     /*               fg          bg          border   */
     [SchemeNorm] = { "#bbbbbb",  "#222222",  "#000000" },
     [SchemeSel]  = { "#eeeeee",  "#005577",  "#770000" },
+    [SchemeHid]  = { "#005577",  "#222222",  "#005577" },
 };
 
 /* tagging */
@@ -86,8 +87,10 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static const Key keys[] = {
     /* modifier              key                 function             argument */
-	{ MODKEY,                XK_j,               focusstack,          {.i = +1 } },
-	{ MODKEY,                XK_k,               focusstack,          {.i = -1 } },
+	// { MODKEY,                XK_j,               focusstack,          {.i = +1 } },
+	// { MODKEY,                XK_k,               focusstack,          {.i = -1 } },
+	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
+	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
     { MODKEY,                XK_h,               setmfact,            {.f = -0.05} },
     { MODKEY,                XK_l,               setmfact,            {.f = +0.05} },
     { MODKEY,                XK_d,               spawn,               {.v = dmenucmd } },
@@ -163,6 +166,7 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
