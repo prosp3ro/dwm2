@@ -1,4 +1,5 @@
 /* constants */
+#include <X11/X.h>
 #define TERMINAL  "st"
 #define TERMCLASS "St"
 #define BROWSER   "brave-browser-nightly"
@@ -52,7 +53,7 @@ static const Rule rules[] = {
     { "Signal",                  NULL,               NULL,           1 << 7,          0,                  -1 },
     { "Chromium",                NULL,               NULL,           1 << 2,          0,                  -1 },
     { "Ferdium",                 NULL,               NULL,           1 << 3,          0,                  -1 },
-    { "st-256color",             NULL,               NULL,           1 << 1,          0,                  -1 },
+    { "st-dev",             NULL,               NULL,           1 << 1,          0,                  -1 },
     { "chatterino",              "chatterino",       NULL,           0,               1,                  -1 },
 };
 
@@ -95,7 +96,8 @@ static const Key keys[] = {
     { MODKEY,                            XK_l,                        setmfact,                  {.f = +0.05} },
     { MODKEY,                            XK_d,                        spawn,                     {.v = dmenucmd } },
     { MODKEY|ShiftMask,                  XK_d,	                      spawn,                     SHCMD("keepmenu") },
-    { MODKEY,                            XK_Return,                   spawn,                     {.v = termcmd } },
+    { MODKEY,                            XK_Return,                   spawn,                     {.v = (const char*[]){ TERMINAL, "-c", "st-dev", "-e", "ses", "main", NULL } } },
+    { MODKEY|ShiftMask,                  XK_Return,                   spawn,                     {.v = termcmd } },
     // { MODKEY|ShiftMask,                  XK_Return,                   togglescratch,             {.v = scratchpadcmd } },
     { MODKEY,                            XK_b,                        togglebar,                 {0} },
     { MODKEY,                            XK_q,                        killclient,                {0} },
