@@ -24,6 +24,10 @@ static char *colors[][3] = {
     [SchemeHid]  = { "#005577",  "#222222",  "#005577" },
 };
 
+
+/* autostart */
+static const char *startup_programs[] = { "obsidian", "brave-browser-nightly --class=B1", "st -c st-dev -t tmux -e ses main" };
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
