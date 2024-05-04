@@ -6,6 +6,11 @@
 /* appearance */
 static const unsigned int borderpx  = 0;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayonleft = 0;    /* 0: systray in the right corner, >0: systray on left of status text */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;        /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
@@ -66,17 +71,8 @@ static const Key keys[] = {
     /* modifier                          key                          function                   argument */
     // STACKKEYS(MODKEY,                                              focus)
     // STACKKEYS(MODKEY|ShiftMask,                                       push)
-    // { MODKEY,                            XK_j,                        focusstackvis,             {.i = +1 } },
-    // { MODKEY,                            XK_Tab,                      focusstackvis,             {.i = +1 } },
-    // { MODKEY,                            XK_k,                        focusstackvis,             {.i = -1 } },
-    // { MODKEY|ShiftMask,                  XK_Tab,                      focusstackvis,             {.i = -1 } },
-    // { MODKEY|ShiftMask,                  XK_j,                        focusstackhid,             {.i = +1 } },
-    // { MODKEY|ShiftMask,                  XK_k,                        focusstackhid,             {.i = -1 } },
-    // { MODKEY,                            XK_s,                        show,                      {0} },
-    // { MODKEY|ShiftMask,                  XK_s,                        showall,                   {0} },
-    // { MODKEY,                            XK_h,                        hide,                      {0} },
-    { MODKEY,                            XK_j,                        focusstackvis,             {.i = +1 } },
-    { MODKEY,                            XK_k,                        focusstackvis,             {.i = -1 } },
+	{ MODKEY,                            XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                            XK_k,      focusstack,     {.i = -1 } },
     { MODKEY,                            XK_h,                        setmfact,                  {.f = -0.05} },
     { MODKEY,                            XK_l,                        setmfact,                  {.f = +0.05} },
     { MODKEY,                            XK_d,                        spawn,                     {.v = dmenucmd } },
@@ -159,7 +155,6 @@ static const Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
-	{ ClkWinTitle,          0,              Button1,        togglewin,      {0} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
