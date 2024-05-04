@@ -21,9 +21,9 @@ static char *fonts[] = {
 };
 
 static char *colors[][3] = {
-    /*                  fg             bg             border   */
-    [SchemeNorm] =    { "#bbbbbb",     "#222222",     "#000000" },
-    [SchemeSel]  =    { "#eeeeee",     "#005577",     "#770000" },
+    /*               fg          bg          border   */
+    [SchemeNorm] = { "#bbbbbb",  "#222222",  "#000000" },
+    [SchemeSel]  = { "#eeeeee",  "#005577",  "#770000" },
 };
 
 /* tagging */
@@ -34,27 +34,27 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-    /* class                     instance            title           tags mask        isfloating          monitor */
-    { "Gimp",                    NULL,               NULL,           0,               1,                  -1 },
-    { "Tor Browser",             NULL,               NULL,           0,               1,                  -1 },
-    { "brave",                   NULL,               NULL,           0,               1,                  -1 },
-    { "Nsxiv",                   NULL,               NULL,           0,               1,                  -1 },
-    { "Blueman-manager",         NULL,               NULL,           0,               1,                  -1 },
-    { "Wpa_gui",                 NULL,               NULL,           0,               1,                  -1 },
-    { "mpv",                     NULL,               NULL,           0,               1,                  -1 },
-    { "stacer",                  NULL,               NULL,           0,               1,                  -1 },
-    { "pop-up",                  NULL,               NULL,           0,               1,                  -1 },
-    { "Gpick",                   NULL,               NULL,           0,               1,                  -1 },
-    { "pavucontrol",             NULL,               NULL,           0,               1,                  -1 },
-    { "YouTube Music",           NULL,               NULL,           1 << 6,          0,                  -1 },
-    { "firefox",                 NULL,               NULL,           1 << 6,          0,                  -1 },
-    { "obsidian",                NULL,               NULL,           1 << 8,          0,                  -1 },
-    { "LibreWolf",               NULL,               NULL,           1 << 7,          0,                  -1 },
-    { "Signal",                  NULL,               NULL,           1 << 7,          0,                  -1 },
-    { "Chromium",                NULL,               NULL,           1 << 2,          0,                  -1 },
-    { "Ferdium",                 NULL,               NULL,           1 << 3,          0,                  -1 },
-    { "st-dev",             NULL,               NULL,           1 << 1,          0,                  -1 },
-    { "chatterino",              "chatterino",       NULL,           0,               1,                  -1 },
+    /* class                instance        title      tags mask   isfloating   monitor */
+    { "Gimp",               NULL,           NULL,      0,          1,           -1 },
+    { "Tor Browser",        NULL,           NULL,      0,          1,           -1 },
+    { "brave",              NULL,           NULL,      0,          1,           -1 },
+    { "Nsxiv",              NULL,           NULL,      0,          1,           -1 },
+    { "Blueman-manager",    NULL,           NULL,      0,          1,           -1 },
+    { "Wpa_gui",            NULL,           NULL,      0,          1,           -1 },
+    { "mpv",                NULL,           NULL,      0,          1,           -1 },
+    { "stacer",             NULL,           NULL,      0,          1,           -1 },
+    { "pop-up",             NULL,           NULL,      0,          1,           -1 },
+    { "Gpick",              NULL,           NULL,      0,          1,           -1 },
+    { "pavucontrol",        NULL,           NULL,      0,          1,           -1 },
+    { "YouTube Music",      NULL,           NULL,      1 << 6,     0,           -1 },
+    { "firefox",            NULL,           NULL,      1 << 6,     0,           -1 },
+    { "obsidian",           NULL,           NULL,      1 << 8,     0,           -1 },
+    { "LibreWolf",          NULL,           NULL,      1 << 7,     0,           -1 },
+    { "Signal",             NULL,           NULL,      1 << 7,     0,           -1 },
+    { "Chromium",           NULL,           NULL,      1 << 2,     0,           -1 },
+    { "Ferdium",            NULL,           NULL,      1 << 3,     0,           -1 },
+    { "st-dev",             NULL,           NULL,      1 << 1,     0,           -1 },
+    { "chatterino",         "chatterino",   NULL,      0,          1,           -1 },
 };
 
 /* layout(s) */
@@ -87,71 +87,71 @@ static const char *dmenucmd[]      = { "dmenu_run", "-m", dmenumon, NULL };
 static const char *termcmd[]       = { TERMINAL, NULL };
 
 static const Key keys[] = {
-    /* modifier                          key                          function                   argument */
-	{ MODKEY,                            XK_j,                        focusstack,                {.i = +1 } },
-	{ MODKEY,                            XK_k,                        focusstack,                {.i = -1 } },
-    { MODKEY,                            XK_h,                        setmfact,                  {.f = -0.05} },
-    { MODKEY,                            XK_l,                        setmfact,                  {.f = +0.05} },
-    { MODKEY,                            XK_d,                        spawn,                     {.v = dmenucmd } },
-    { MODKEY|ShiftMask,                  XK_d,	                      spawn,                     SHCMD("keepmenu") },
-    { MODKEY,                            XK_Return,                   spawn,                     {.v = (const char*[]){ TERMINAL, "-c", "st-dev", "-e", "ses", "main", NULL } } },
-    { MODKEY|ShiftMask,                  XK_Return,                   spawn,                     {.v = termcmd } },
-    { MODKEY,                            XK_b,                        togglebar,                 {0} },
-    { MODKEY,                            XK_q,                        killclient,                {0} },
-    { MODKEY|ShiftMask,                  XK_q,                        quit,                      {0} },
-    { MODKEY,                            XK_f,                        togglefullscreen,          {0} },
-    { MODKEY,                            XK_space,                    setlayout,                 {0} },
-    { MODKEY|ShiftMask,                  XK_space,                    togglefloating,            {0} },
-    { MODKEY,                            XK_m,                        spawn,                     SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof dwmblocks)") },
-    { MODKEY,                            XK_minus,                    spawn,                     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%; kill -10 $(pidof dwmblocks)") },
-    { MODKEY,                            XK_equal,                    spawn,                     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%; kill -10 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,                  XK_minus,                    spawn,                     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -10 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,                  XK_equal,                    spawn,                     SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -10 $(pidof dwmblocks)") },
-    { MODKEY,                            XK_BackSpace,                spawn,                     SHCMD("dm-sys") },
-    { MODKEY,                            XK_grave,                    spawn,                     SHCMD("dunstctl close") },
-    { MODKEY|ShiftMask,                  XK_b,                        spawn,                     SHCMD("dm-bluetooth") },
-    { 0,                                 XK_Print,                    spawn,                     SHCMD("dm-maim") },
-    { MODKEY,                            XK_w,                        spawn,                     {.v = (const char*[]){ BROWSER, NULL } } },
-    { MODKEY,                            XK_e,                        spawn,                     SHCMD("brave") },
-    { MODKEY|ShiftMask,                  XK_f,                        spawn,                     SHCMD("ferdium") },
-    { MODKEY,                            XK_s,                        spawn,                     SHCMD("librewolf") },
-    { MODKEY|ShiftMask,                  XK_s,                        spawn,                     SHCMD("signal-desktop") },
-    { MODKEY,                            XK_n,                        spawn,                     SHCMD("obsidian") },
-    { MODKEY,                            XK_p,                        spawn,                     {.v = (const char*[]){ "mpc", "toggle", NULL } } },
-    { MODKEY,                            XK_bracketleft,              spawn,                     {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
-    { MODKEY,                            XK_bracketright,             spawn,                     {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
-    { MODKEY|ShiftMask,                  XK_bracketleft,	          spawn,                     {.v = (const char*[]){ "mpc", "prev", NULL } } },
-    { MODKEY|ShiftMask,                  XK_bracketright,             spawn,                     {.v = (const char*[]){ "mpc", "next", NULL } } },
-    { MODKEY|ShiftMask,                  XK_semicolon,                spawn,                     SHCMD("dm-kill") },
-    { MODKEY,                            XK_apostrophe,               spawn,                     SHCMD("dm-mount") },
-    { MODKEY|ShiftMask,                  XK_apostrophe,               spawn,                     SHCMD("dm-umount") },
-    { MODKEY,                            XK_Delete,                   spawn,                     SHCMD("dm-kill") },
-    { MODKEY,                            XK_u,                        spawn,                     SHCMD("urls") },
-    { MODKEY,                            XK_i,                        spawn,                     SHCMD("dm-nm") },
-    { MODKEY|ShiftMask,                  XK_i,                        spawn,                     {.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
-    { MODKEY,                            XK_r,                        spawn,                     SHCMD("remaps us; kill -10 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,                  XK_r,                        spawn,                     SHCMD("remaps pl; kill -10 $(pidof dwmblocks)") },
-    { MODKEY,                            XK_0,                        spawn,                     SHCMD("dm-display") },
-    { MODKEY,                            XK_x,                        spawn,                     SHCMD("clear-clipboard") },
-    { MODKEY,                            XK_c,                        spawn,                     SHCMD("chromium") },
-    { MODKEY,                            XK_period,                   viewnext,                  {0} },
-    { MODKEY|ShiftMask,                  XK_period,                   tagtonext,                 {0} },
-    { MODKEY,                            XK_comma,                    viewprev,                  {0} },
-    { MODKEY|ShiftMask,                  XK_comma,                    tagtoprev,                 {0} },
-    { MODKEY,                            XK_z,                        zoom,                      {0} },
-    // { MODKEY,                            XK_comma,                    focusmon,                  {.i = -1 } },
-    // { MODKEY,                            XK_period,                   focusmon,                  {.i = +1 } },
-    // { MODKEY|ShiftMask,                  XK_comma,                    tagmon,                    {.i = -1 } },
-    // { MODKEY|ShiftMask,                  XK_period,                   tagmon,                    {.i = +1 } },
-    TAGKEYS(                             XK_1,                                                   0)
-    TAGKEYS(                             XK_2,                                                   1)
-    TAGKEYS(                             XK_3,                                                   2)
-    TAGKEYS(                             XK_4,                                                   3)
-    TAGKEYS(                             XK_5,                                                   4)
-    TAGKEYS(                             XK_6,                                                   5)
-    TAGKEYS(                             XK_7,                                                   6)
-    TAGKEYS(                             XK_8,                                                   7)
-    TAGKEYS(                             XK_9,                                                   8)
+    /* modifier              key                 function             argument */
+	{ MODKEY,                XK_j,               focusstack,          {.i = +1 } },
+	{ MODKEY,                XK_k,               focusstack,          {.i = -1 } },
+    { MODKEY,                XK_h,               setmfact,            {.f = -0.05} },
+    { MODKEY,                XK_l,               setmfact,            {.f = +0.05} },
+    { MODKEY,                XK_d,               spawn,               {.v = dmenucmd } },
+    { MODKEY|ShiftMask,      XK_d,	             spawn,               SHCMD("keepmenu") },
+    { MODKEY,                XK_Return,          spawn,               {.v = (const char*[]){ TERMINAL, "-c", "st-dev", "-e", "ses", "main", NULL } } },
+    { MODKEY|ShiftMask,      XK_Return,          spawn,               {.v = termcmd } },
+    { MODKEY,                XK_b,               togglebar,           {0} },
+    { MODKEY,                XK_q,               killclient,          {0} },
+    { MODKEY|ShiftMask,      XK_q,               quit,                {0} },
+    { MODKEY,                XK_f,               togglefullscreen,    {0} },
+    { MODKEY,                XK_space,           setlayout,           {0} },
+    { MODKEY|ShiftMask,      XK_space,           togglefloating,      {0} },
+    { MODKEY,                XK_m,               spawn,               SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof dwmblocks)") },
+    { MODKEY,                XK_minus,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%; kill -10 $(pidof dwmblocks)") },
+    { MODKEY,                XK_equal,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%; kill -10 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,      XK_minus,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%; kill -10 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,      XK_equal,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%; kill -10 $(pidof dwmblocks)") },
+    { MODKEY,                XK_BackSpace,       spawn,               SHCMD("dm-sys") },
+    { MODKEY,                XK_grave,           spawn,               SHCMD("dunstctl close") },
+    { MODKEY|ShiftMask,      XK_b,               spawn,               SHCMD("dm-bluetooth") },
+    { 0,                     XK_Print,           spawn,               SHCMD("dm-maim") },
+    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ BROWSER, NULL } } },
+    { MODKEY,                XK_e,               spawn,               SHCMD("brave") },
+    { MODKEY|ShiftMask,      XK_f,               spawn,               SHCMD("ferdium") },
+    { MODKEY,                XK_s,               spawn,               SHCMD("librewolf") },
+    { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("signal-desktop") },
+    { MODKEY,                XK_n,               spawn,               SHCMD("obsidian") },
+    { MODKEY,                XK_p,               spawn,               {.v = (const char*[]){ "mpc", "toggle", NULL } } },
+    { MODKEY,                XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
+    { MODKEY,                XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
+    { MODKEY|ShiftMask,      XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "prev", NULL } } },
+    { MODKEY|ShiftMask,      XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "next", NULL } } },
+    { MODKEY|ShiftMask,      XK_semicolon,       spawn,               SHCMD("dm-kill") },
+    { MODKEY,                XK_apostrophe,      spawn,               SHCMD("dm-mount") },
+    { MODKEY|ShiftMask,      XK_apostrophe,      spawn,               SHCMD("dm-umount") },
+    { MODKEY,                XK_Delete,          spawn,               SHCMD("dm-kill") },
+    { MODKEY,                XK_u,               spawn,               SHCMD("urls") },
+    { MODKEY,                XK_i,               spawn,               SHCMD("dm-nm") },
+    { MODKEY|ShiftMask,      XK_i,               spawn,               {.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
+    { MODKEY,                XK_r,               spawn,               SHCMD("remaps us; kill -10 $(pidof dwmblocks)") },
+    { MODKEY|ShiftMask,      XK_r,               spawn,               SHCMD("remaps pl; kill -10 $(pidof dwmblocks)") },
+    { MODKEY,                XK_0,               spawn,               SHCMD("dm-display") },
+    { MODKEY,                XK_x,               spawn,               SHCMD("clear-clipboard") },
+    { MODKEY,                XK_c,               spawn,               SHCMD("chromium") },
+    { MODKEY,                XK_period,          viewnext,            {0} },
+    { MODKEY|ShiftMask,      XK_period,          tagtonext,           {0} },
+    { MODKEY,                XK_comma,           viewprev,            {0} },
+    { MODKEY|ShiftMask,      XK_comma,           tagtoprev,           {0} },
+    { MODKEY,                XK_z,               zoom,                {0} },
+    // { MODKEY,                XK_comma,           focusmon,            {.i = -1 } },
+    // { MODKEY,                XK_period,          focusmon,            {.i = +1 } },
+    // { MODKEY|ShiftMask,      XK_comma,           tagmon,              {.i = -1 } },
+    // { MODKEY|ShiftMask,      XK_period,          tagmon,              {.i = +1 } },
+    TAGKEYS(                 XK_1,                                    0)
+    TAGKEYS(                 XK_2,                                    1)
+    TAGKEYS(                 XK_3,                                    2)
+    TAGKEYS(                 XK_4,                                    3)
+    TAGKEYS(                 XK_5,                                    4)
+    TAGKEYS(                 XK_6,                                    5)
+    TAGKEYS(                 XK_7,                                    6)
+    TAGKEYS(                 XK_8,                                    7)
+    TAGKEYS(                 XK_9,                                    8)
 };
 
 /* button definitions */
