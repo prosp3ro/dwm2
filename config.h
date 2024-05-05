@@ -65,7 +65,7 @@ static const Rule rules[] = {
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
 static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 0; /* 1 will force focus on the fullscreen window */
+static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
@@ -105,7 +105,6 @@ static const Key keys[] = {
     { MODKEY,                XK_b,               togglebar,           {0} },
     { MODKEY,                XK_q,               killclient,          {0} },
     { MODKEY|ShiftMask,      XK_q,               quit,                {0} },
-    { MODKEY,                XK_f,               togglefullscreen,    {0} },
     { MODKEY,                XK_space,           setlayout,           {0} },
     { MODKEY|ShiftMask,      XK_space,           togglefloating,      {0} },
     { MODKEY,                XK_m,               spawn,               SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof dwmblocks)") },
