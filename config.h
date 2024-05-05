@@ -24,12 +24,6 @@ static char *colors[][3] = {
     [SchemeHid]  = { "#005577",  "#222222",  "#005577" },
 };
 
-static const Gap default_gap = {
-    .isgap = 1,
-    .realgap = 10,
-    .gappx = 10
-};
-
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
@@ -150,10 +144,6 @@ static const Key keys[] = {
     { MODKEY,                XK_Escape,          viewprev,            {0} },
     { MODKEY|ShiftMask,      XK_comma,           tagtoprev,           {0} },
     // { MODKEY,                XK_z,               zoom,                {0} },
-	{ MODKEY,                XK_x,               setgaps,             {.i = -5 } },
-	{ MODKEY,                XK_z,               setgaps,             {.i = +5 } },
-	{ MODKEY|ShiftMask,      XK_a,               setgaps,             {.i = GAP_RESET } },
-	{ MODKEY,                XK_a,               setgaps,             {.i = GAP_TOGGLE} },
     // { MODKEY,                XK_comma,           focusmon,            {.i = -1 } },
     // { MODKEY,                XK_period,          focusmon,            {.i = +1 } },
     // { MODKEY|ShiftMask,      XK_comma,           tagmon,              {.i = -1 } },
