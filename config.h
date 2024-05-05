@@ -91,10 +91,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static const Key keys[] = {
     /* modifier              key                 function             argument */
-	// { MODKEY,                XK_j,               focusstack,          {.i = +1 } },
-	// { MODKEY,                XK_k,               focusstack,          {.i = -1 } },
-	{ MODKEY,                       XK_j,      focusstackvis,  {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstackvis,  {.i = -1 } },
+	{ MODKEY,                XK_j,               focusstackvis,       {.i = +1 } },
+	{ MODKEY,                XK_k,               focusstackvis,       {.i = -1 } },
     { MODKEY,                XK_h,               setmfact,            {.f = -0.05} },
     { MODKEY,                XK_l,               setmfact,            {.f = +0.05} },
     { MODKEY,                XK_d,               spawn,               {.v = dmenucmd } },
@@ -107,6 +105,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,      XK_q,               quit,                {0} },
     { MODKEY,                XK_space,           setlayout,           {0} },
     { MODKEY|ShiftMask,      XK_space,           togglefloating,      {0} },
+	{ MODKEY,                XK_f,               togglefullscr,       {0} },
     { MODKEY,                XK_m,               spawn,               SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle; kill -10 $(pidof dwmblocks)") },
     { MODKEY,                XK_minus,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -2%; kill -10 $(pidof dwmblocks)") },
     { MODKEY,                XK_equal,           spawn,               SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +2%; kill -10 $(pidof dwmblocks)") },
