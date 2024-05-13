@@ -60,7 +60,7 @@ static const Rule rules[] = {
     { "Chromium",               NULL,           NULL,      1 << 2,     0,           -1 },
     { "Ferdium",                NULL,           NULL,      1 << 3,     0,           -1 },
     { "st-dev",                 NULL,           NULL,      1 << 1,     0,           -1 },
-    { "chatterino",             "chatterino",   NULL,      0,          1,           -1 },
+    // { "chatterino",             "chatterino",   NULL,      0,          1,           -1 },
 };
 
 /* layout(s) */
