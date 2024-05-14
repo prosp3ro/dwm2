@@ -1,1 +1,0 @@
-/home/prospero/.local/share/dwm/autostart.sh
