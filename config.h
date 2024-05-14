@@ -123,9 +123,8 @@ static const Key keys[] = {
     { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--class=B1", NULL } } },
     { MODKEY,                XK_e,               spawn,               {.v = (const char*[]){ "brave", "--class=B2", NULL } } },
     { MODKEY|ShiftMask,      XK_f,               spawn,               SHCMD("ferdium") },
-    { MODKEY,                XK_s,               spawn,               SHCMD("librewolf") },
-    { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("signal-desktop") },
-    { MODKEY,                XK_n,               spawn,               SHCMD("obsidian") },
+    { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("librewolf") },
+    { MODKEY|ShiftMask,      XK_n,               spawn,               SHCMD("obsidian") },
     { MODKEY,                XK_p,               spawn,               {.v = (const char*[]){ "mpc", "toggle", NULL } } },
     { MODKEY,                XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
     { MODKEY,                XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
@@ -134,7 +133,6 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,      XK_semicolon,       spawn,               SHCMD("dm-kill") },
     { MODKEY,                XK_apostrophe,      spawn,               SHCMD("dm-mount") },
     { MODKEY|ShiftMask,      XK_apostrophe,      spawn,               SHCMD("dm-umount") },
-    { MODKEY,                XK_Delete,          spawn,               SHCMD("dm-kill") },
     { MODKEY,                XK_u,               spawn,               SHCMD("urls") },
     { MODKEY,                XK_i,               spawn,               SHCMD("dm-nm") },
     { MODKEY|ShiftMask,      XK_i,               spawn,               {.v = (const char*[]){ "st", "-e", "sudo", "nmtui", NULL } } },
@@ -168,7 +166,9 @@ static const Key keys[] = {
     TAGKEYS(                 XK_6,                                    5)
     TAGKEYS(                 XK_7,                                    6)
     TAGKEYS(                 XK_8,                                    7)
+    TAGKEYS(                 XK_s,                                    7)
     TAGKEYS(                 XK_9,                                    8)
+    TAGKEYS(                 XK_n,                                    8)
 };
 
 /* button definitions */
