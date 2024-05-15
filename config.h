@@ -42,8 +42,7 @@ static const Rule rules[] = {
     { "Gimp",                   NULL,           NULL,      0,          1,           -1 },
     { "Tor Browser",            NULL,           NULL,      0,          1,           -1 },
     { "brave",                  NULL,           NULL,      0,          1,           -1 },
-    { "B1",                     NULL,           NULL,      1,          0,           -1 },
-    { "B2",                     NULL,           NULL,      1 << 2,     0,           -1 },
+    { "Brave-browser-nightly",  NULL,           NULL,      1,          0,           -1 },
     { "Nsxiv",                  NULL,           NULL,      0,          1,           -1 },
     { "Blueman-manager",        NULL,           NULL,      0,          1,           -1 },
     { "Wpa_gui",                NULL,           NULL,      0,          1,           -1 },
@@ -60,7 +59,6 @@ static const Rule rules[] = {
     { "Chromium",               NULL,           NULL,      1 << 2,     0,           -1 },
     { "Ferdium",                NULL,           NULL,      1 << 3,     0,           -1 },
     { "st-dev",                 NULL,           NULL,      1 << 1,     0,           -1 },
-    // { "chatterino",             "chatterino",   NULL,      0,          1,           -1 },
 };
 
 /* layout(s) */
@@ -118,13 +116,11 @@ static const Key keys[] = {
     { MODKEY,                XK_grave,           spawn,               SHCMD("dunstctl close") },
     { MODKEY|ShiftMask,      XK_b,               spawn,               SHCMD("dm-bluetooth") },
     { 0,                     XK_Print,           spawn,               SHCMD("dm-maim") },
-    // { MODKEY,                XK_w,               spawn,               SHCMD("brave-browser-nightly") },
-    // { MODKEY,                XK_e,               spawn,               SHCMD("brave") },
-    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--class=B1", NULL } } },
-    { MODKEY,                XK_e,               spawn,               {.v = (const char*[]){ "brave", "--class=B2", NULL } } },
+    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--profile-directory=Default", NULL } } },
+    { MODKEY|ShiftMask,      XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--profile-directory=Profile 2", NULL } } },
     { MODKEY|ShiftMask,      XK_f,               spawn,               SHCMD("ferdium") },
     { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("librewolf") },
-    { MODKEY|ShiftMask,      XK_n,               spawn,               SHCMD("obsidian") },
+    { MODKEY|ShiftMask,      XK_e,               spawn,               SHCMD("obsidian") },
     { MODKEY,                XK_p,               spawn,               {.v = (const char*[]){ "mpc", "toggle", NULL } } },
     { MODKEY,                XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
     { MODKEY,                XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
@@ -168,7 +164,7 @@ static const Key keys[] = {
     TAGKEYS(                 XK_8,                                    7)
     TAGKEYS(                 XK_s,                                    7)
     TAGKEYS(                 XK_9,                                    8)
-    TAGKEYS(                 XK_n,                                    8)
+    TAGKEYS(                 XK_e,                                    8)
 };
 
 /* button definitions */
