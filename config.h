@@ -43,6 +43,7 @@ static const Rule rules[] = {
     { "Tor Browser",            NULL,           NULL,      0,          1,           -1 },
     { "brave",                  NULL,           NULL,      0,          1,           -1 },
     { "Brave-browser-nightly",  NULL,           NULL,      1,          0,           -1 },
+    { "Brave-browser",          NULL,           NULL,      1,          0,           -1 },
     { "Nsxiv",                  NULL,           NULL,      0,          1,           -1 },
     { "Blueman-manager",        NULL,           NULL,      0,          1,           -1 },
     { "Wpa_gui",                NULL,           NULL,      0,          1,           -1 },
@@ -116,8 +117,8 @@ static const Key keys[] = {
     { MODKEY,                XK_grave,           spawn,               SHCMD("dunstctl close") },
     { MODKEY|ShiftMask,      XK_b,               spawn,               SHCMD("dm-bluetooth") },
     { 0,                     XK_Print,           spawn,               SHCMD("dm-maim") },
-    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--profile-directory=Profile 2", NULL } } },
-    { MODKEY|ShiftMask,      XK_w,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", "--profile-directory=Default", NULL } } },
+    { MODKEY,                XK_g,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", NULL } } },
+    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave", NULL } } },
     { MODKEY|ShiftMask,      XK_f,               spawn,               SHCMD("ferdium") },
     { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("librewolf") },
     { MODKEY|ShiftMask,      XK_e,               spawn,               SHCMD("obsidian") },
@@ -154,8 +155,8 @@ static const Key keys[] = {
     // { MODKEY,                XK_period,          focusmon,            {.i = +1 } },
     // { MODKEY|ShiftMask,      XK_comma,           tagmon,              {.i = -1 } },
     // { MODKEY|ShiftMask,      XK_period,          tagmon,              {.i = +1 } },
-    { MODKEY,                XK_e,               view,                {.ui = 1 << 7} },
-    { MODKEY,                XK_s,               view,                {.ui = 1 << 8} },
+    { MODKEY,                XK_s,               view,                {.ui = 1 << 7} },
+    { MODKEY,                XK_e,               view,                {.ui = 1 << 8} },
     TAGKEYS(                 XK_1,                                    0)
     TAGKEYS(                 XK_2,                                    1)
     TAGKEYS(                 XK_3,                                    2)
