@@ -104,7 +104,7 @@ static const Key keys[] = {
     { MODKEY,                XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
     { MODKEY|ShiftMask,      XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "prev", NULL } } },
     { MODKEY|ShiftMask,      XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "next", NULL } } },
-    { MODKEY|ShiftMask,      XK_semicolon,       spawn,               SHCMD("dm-kill") },
+    { MODKEY,                XK_Delete,          spawn,               SHCMD("dm-kill") },
     { MODKEY,                XK_apostrophe,      spawn,               SHCMD("dm-mount") },
     { MODKEY|ShiftMask,      XK_apostrophe,      spawn,               SHCMD("dm-umount") },
     { MODKEY,                XK_u,               spawn,               SHCMD("urls") },
