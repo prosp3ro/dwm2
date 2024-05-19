@@ -42,24 +42,12 @@ static const Rule rules[] = {
     { "Gimp",                   NULL,           NULL,      0,          1,           -1 },
     { "Tor Browser",            NULL,           NULL,      0,          1,           -1 },
     { "brave",                  NULL,           NULL,      0,          1,           -1 },
-    { "Brave-browser-nightly",  NULL,           NULL,      1,          0,           -1 },
-    { "Brave-browser",          NULL,           NULL,      1,          0,           -1 },
     { "Nsxiv",                  NULL,           NULL,      0,          1,           -1 },
     { "Blueman-manager",        NULL,           NULL,      0,          1,           -1 },
     { "Wpa_gui",                NULL,           NULL,      0,          1,           -1 },
     { "mpv",                    NULL,           NULL,      0,          1,           -1 },
-    { "stacer",                 NULL,           NULL,      0,          1,           -1 },
     { "pop-up",                 NULL,           NULL,      0,          1,           -1 },
     { "Gpick",                  NULL,           NULL,      0,          1,           -1 },
-    { "pavucontrol",            NULL,           NULL,      0,          1,           -1 },
-    { "YouTube Music",          NULL,           NULL,      1 << 6,     0,           -1 },
-    { "firefox",                NULL,           NULL,      1 << 6,     0,           -1 },
-    { "obsidian",               NULL,           NULL,      1 << 8,     0,           -1 },
-    { "LibreWolf",              NULL,           NULL,      1 << 7,     0,           -1 },
-    { "Signal",                 NULL,           NULL,      1 << 7,     0,           -1 },
-    { "Chromium",               NULL,           NULL,      1 << 2,     0,           -1 },
-    { "Ferdium",                NULL,           NULL,      1 << 3,     0,           -1 },
-    { "st-dev",                 NULL,           NULL,      1 << 1,     0,           -1 },
 };
 
 /* layout(s) */
@@ -87,7 +75,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, NULL };
+// static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, NULL };
+static const char *dmenucmd[]   = { "dmenu_hp" };
 static const char scratchpadname[] = "scratch";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", "-e", "ses", scratchpadname, NULL };
 
@@ -99,9 +88,8 @@ static const Key keys[] = {
     { MODKEY,                XK_l,               setmfact,            {.f = +0.05} },
     { MODKEY,                XK_d,               spawn,               {.v = dmenucmd } },
     { MODKEY|ShiftMask,      XK_d,               spawn,               SHCMD("keepmenu") },
-    { MODKEY,                XK_o,               spawn,               {.v = (const char*[]){ "st", "-c", "st-dev", "-t", "tmux", "-e", "ses", "main", NULL } } },
-    { MODKEY|ShiftMask,      XK_o,               togglescratch,       {.v = scratchpadcmd } },
     { MODKEY,                XK_Return,          spawn,               {.v = (const char*[]){ "st", NULL } } },
+    { MODKEY,                XK_o,               togglescratch,       {.v = scratchpadcmd } },
     { MODKEY,                XK_b,               togglebar,           {0} },
     { MODKEY,                XK_q,               killclient,          {0} },
     { MODKEY|ShiftMask,      XK_q,               quit,                {0} },
@@ -117,11 +105,6 @@ static const Key keys[] = {
     { MODKEY,                XK_grave,           spawn,               SHCMD("dunstctl close") },
     { MODKEY|ShiftMask,      XK_b,               spawn,               SHCMD("dm-bluetooth") },
     { 0,                     XK_Print,           spawn,               SHCMD("dm-maim") },
-    { MODKEY,                XK_g,               spawn,               {.v = (const char*[]){ "brave-browser-nightly", NULL } } },
-    { MODKEY,                XK_w,               spawn,               {.v = (const char*[]){ "brave", NULL } } },
-    { MODKEY|ShiftMask,      XK_f,               spawn,               SHCMD("ferdium") },
-    { MODKEY|ShiftMask,      XK_s,               spawn,               SHCMD("librewolf") },
-    { MODKEY|ShiftMask,      XK_e,               spawn,               SHCMD("obsidian") },
     { MODKEY,                XK_p,               spawn,               {.v = (const char*[]){ "mpc", "toggle", NULL } } },
     { MODKEY,                XK_bracketleft,     spawn,               {.v = (const char*[]){ "mpc", "volume", "-5", NULL } } },
     { MODKEY,                XK_bracketright,    spawn,               {.v = (const char*[]){ "mpc", "volume", "+5", NULL } } },
@@ -133,11 +116,9 @@ static const Key keys[] = {
     { MODKEY,                XK_u,               spawn,               SHCMD("urls") },
     { MODKEY,                XK_i,               spawn,               SHCMD("dm-nm") },
     { MODKEY|ShiftMask,      XK_i,               spawn,               {.v = (const char*[]){ "st", "-e", "sudo", "nmtui", NULL } } },
-    { MODKEY,                XK_r,               spawn,               SHCMD("remaps us; kill -10 $(pidof dwmblocks)") },
-    { MODKEY|ShiftMask,      XK_r,               spawn,               SHCMD("remaps pl; kill -10 $(pidof dwmblocks)") },
+    { MODKEY,                XK_r,               spawn,               SHCMD("remaps; kill -10 $(pidof dwmblocks)") },
     { MODKEY,                XK_0,               spawn,               SHCMD("dm-display") },
-    { MODKEY,                XK_c,               spawn,               SHCMD("chromium") },
-    { MODKEY|ShiftMask,      XK_c,               spawn,               SHCMD("clear-clipboard") },
+    { MODKEY,                XK_c,               spawn,               SHCMD("clear-clipboard") },
     { MODKEY,                XK_period,          viewnext,            {0} },
     { MODKEY,                XK_Tab,             viewnext,            {0} },
     { MODKEY|ShiftMask,      XK_period,          tagtonext,           {0} },
