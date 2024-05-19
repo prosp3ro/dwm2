@@ -20,7 +20,7 @@ static char *fonts[] = {
 static char *colors[][3] = {
     /*               fg          bg          border   */
     [SchemeNorm] = { "#bbbbbb",  "#222222",  "#000000" },
-    [SchemeSel]  = { "#eeeeee",  "#005577",  "#770000" },
+    [SchemeSel]  = { "#eeeeee",  "#005577",  "#005577" },
     [SchemeHid]  = { "#005577",  "#222222",  "#005577" },
 };
 
@@ -121,10 +121,6 @@ static const Key keys[] = {
     { MODKEY,                XK_Escape,          viewprev,            {0} },
     { MODKEY|ShiftMask,      XK_comma,           tagtoprev,           {0} },
     { MODKEY|ShiftMask,      XK_Escape,          tagtoprev,           {0} },
-    { MODKEY,                XK_z,               incrgaps,            {.i = +2 } },
-    { MODKEY,                XK_x,               incrgaps,            {.i = -2 } },
-    { MODKEY,                XK_a,               togglegaps,          {0} },
-    { MODKEY|ShiftMask,      XK_a,               defaultgaps,         {0} },
     // { MODKEY,                XK_z,               zoom,                {0} },
     // { MODKEY,                XK_comma,           focusmon,            {.i = -1 } },
     // { MODKEY,                XK_period,          focusmon,            {.i = +1 } },
