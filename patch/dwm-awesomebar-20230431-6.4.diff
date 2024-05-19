@@ -1,8 +1,5 @@
 https://dwm.suckless.org/patches/awesomebar/
 
-Updated version from G-OD:
-dwm-awesomebar-20230431-6.4.diff (2023-04-31)
-
 diff --git a/config.def.h b/config.def.h
 index 061ad66..05f18e5 100644
 --- a/config.def.h

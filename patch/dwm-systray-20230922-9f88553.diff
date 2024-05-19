@@ -1,5 +1,4 @@
 https://dwm.suckless.org/patches/systray/
-dwm-systray-20230922-9f88553.diff (24K) (20230922)
 
 diff --git a/config.def.h b/config.def.h
 index 9efa774..fed4fb9 100644
